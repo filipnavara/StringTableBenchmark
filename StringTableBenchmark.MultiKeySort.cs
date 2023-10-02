@@ -45,7 +45,13 @@ public partial class StringTableBenchmarks
 
         MultiKeySortByteSize = (ulong)stringTable.WrittenCount;
 
-        static char TailCharacter(string str, int pos) => pos < str.Length ? str[str.Length - pos - 1] : (char)0;
+        static char TailCharacter(string str, int pos)
+        {
+            int index = str.Length - pos - 1;
+            if ((uint)index < str.Length)
+                return str[index];
+            return '\0';
+        }
 
         static void MultiKeySort(Span<string> input, int pos)
         {
