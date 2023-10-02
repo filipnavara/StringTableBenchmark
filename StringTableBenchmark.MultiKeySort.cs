@@ -87,7 +87,7 @@ public partial class StringTableBenchmarks
 
             MultiKeySort(input.Slice(0, l), pos);
             MultiKeySort(input.Slice(h), pos);
-            if (pivot != (char)0)
+            if (pivot != '\0')
             {
                 // Use a loop as a poor man's tailcall
                 // MultiKeySort(input.Slice(l, h - l), pos + 1);
