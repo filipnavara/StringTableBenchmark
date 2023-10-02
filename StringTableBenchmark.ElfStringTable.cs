@@ -5,6 +5,8 @@ using LibObjectFile.Elf;
 
 public partial class StringTableBenchmarks
 {
+    public ulong ElfStringTableByteSize;
+
     [Benchmark]
     public void ElfStringTable()
     {
@@ -13,5 +15,6 @@ public partial class StringTableBenchmarks
         {
             elfStringTable.GetOrCreateIndex(str);
         }
+        ElfStringTableByteSize = elfStringTable.Size;
     }
 }
